@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const MenuLink = ({isActive,index,title}) => {
+const MenuLink = ({activeTitle,index,title}) => {
     const StyledMenuLink = styled.div`
-        width: 80%;
         color: #f1eaea;
         background: transparent;
         display: flex;
-        gap: 2rem;
-        font-weight: 700;
+        gap: 1.25rem;
+        font-weight: 500;
+        margin-bottom: 2rem;
         cursor: pointer;
         &:hover,&.active{
             .step-number{
@@ -30,20 +30,22 @@ const MenuLink = ({isActive,index,title}) => {
         }
 
         .step-details{
-            height: 2rem;
+            height: 1.75rem;
+            font-size: 12px;
+
         }
         .step-details-top{
-            font-weight: 100;
-            font-size: 12px;
+            font-weight: 400;
             margin-bottom: 0.25rem;
+            color: #9795ff;
         }
     `;
     return (
-        <StyledMenuLink cl>
-            <div className="step-number">1</div>
+        <StyledMenuLink className={activeTitle==index&&'active'}>
+            <div className="step-number">{index}</div>
             <div className="step-details">
-                <div className="step-details-top">STEP 1</div>
-                <div className="step-details-bottom">Your Info</div>
+                <div className="step-details-top">STEP {index}</div>
+                <div className="step-details-bottom">{title}</div>
             </div>
         </StyledMenuLink>
     );
